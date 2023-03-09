@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: indianred;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#new-deck-btn{
+    margin: 25px 0px 0px 0px;
+    padding: 7px;
+    border-radius: 10px;
+    background-color:rgb(114, 161, 92);
+    color: white;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+#draw-btn{
+    padding: 7px;
+    border-radius: 10px;
+    background-color:rgb(92, 147, 161);
+    color: white;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+#cards{
+    border: 2px dotted brown;
+    margin: 25px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 107px;
+    height:350px;
+    gap: 50px;
+}
+img{
+    height: 150px;
+}
