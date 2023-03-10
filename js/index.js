@@ -16,11 +16,12 @@ document.querySelector('#draw-btn').addEventListener('click', () => {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${cardsId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {console.log(data.cards)
-        document.querySelector('#cards').innerHTML =`
-        <img src=${data.cards[0].image}>
-        <img src=${data.cards[1].image}>
         
-        `
+        let image1 =`<img src=${data.cards[0].image}>`
+        let image2 = `<img src=${data.cards[1].image}>`
+
+        document.querySelector('#card1').innerHTML = image1
+        document.querySelector('#card2').innerHTML = image2
         })
 }) 
 
