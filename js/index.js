@@ -17,22 +17,18 @@ document.querySelector('#draw-btn').addEventListener('click', () => {
         .then(data => {
             
             console.log(data.cards)
-
-        winner(data.cards[0].value, data.cards[1].value)
  
         let image1 =`<img src=${data.cards[0].image}>`
         let image2 = `<img src=${data.cards[1].image}>`
 
         document.querySelector('#card1').innerHTML = image1
         document.querySelector('#card2').innerHTML = image2
-            
-        if( winner = "player1"){
-            document.querySelector('#player1-score').textContent += 1
-        }else if (winner = 'player 2') {
-            document.querySelector('#player2-score').textContent += 1
-        }
+
+        const cardWinner = winner(data.cards[0].value, data.cards[1].value)
+
+        document.querySelector('#winner').innerHTML = cardWinner 
     })
-}) 
+})
 
 
 function winner(value1, value2){
@@ -41,14 +37,31 @@ function winner(value1, value2){
 
     const cardValue = cards.indexOf(value1.value)
     const cardValue2 = cards.indexOf(value2.value)
-    let winner 
+ 
+
     if(cardValue > cardValue2){
-        return winner = "player1"
-    }else if(cardValue > cardValue2){
-        return winner = "player2"
+        return "Computer WINS"
+    }else if(cardValue < cardValue2){
+        return "You WIN"
     }else{
-        return winner = "tie"
+        return "WAR"
     }
 }
+
+function determineCardWinner(card1, card2) {
+    const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+    const card1ValueIndex = valueOptions.indexOf(card1.value)
+    const card2ValueIndex = valueOptions.indexOf(card2.value)
+    
+    if (card1ValueIndex > card2ValueIndex) {
+        return "Card 1 wins!"
+    } else if (card1ValueIndex < card2ValueIndex) {
+        return "Card 2 wins!"
+    } else {
+        return "War!"
+    }
+}
+console.log(determineCardWinner('QUEEN', '5'))
 
 
